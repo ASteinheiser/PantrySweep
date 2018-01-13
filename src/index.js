@@ -21,7 +21,8 @@ const Router = TabNavigator(
   },
   {
     tabBarComponent: BottomNavigation,
-    tabBarPosition: 'bottom'
+    tabBarPosition: 'bottom',
+    swipeEnabled: false
   }
 )
 

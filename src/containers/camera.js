@@ -8,7 +8,12 @@ class CameraApp extends React.Component {
   scanBarcode(e) {
     this.camera.capture()
       .then(data => {
-        this.props.navigation.navigate('AddItem', { barcode: e.data })
+        this.props.navigation.dispatch(NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'AddItem', params: { barcode: e.data }})
+          ]
+        }))
       })
       .catch(err => console.log(err))
   }
