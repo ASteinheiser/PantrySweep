@@ -5,7 +5,7 @@ class BottomNav extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: 'pantry'
+      active: this.props.navigation.state.routes[this.props.navigation.state.index].key
     }
   }
 
@@ -13,21 +13,21 @@ class BottomNav extends React.Component {
     return (
       <BottomNavigation active={this.state.active} hidden={false} >
         <BottomNavigation.Action
-            key="pantry"
+            key="Pantry"
             icon="kitchen"
             label="Virtual Pantry"
             onPress={() => {
-                this.setState({ active: 'pantry' })
+                this.setState({ active: 'Pantry' })
                 this.props.navigation.navigate('Pantry')
               }
             }
         />
         <BottomNavigation.Action
-           key="crafting"
+           key="Crafting"
            icon="local-dining"
            label="Crafting"
            onPress={() => {
-               this.setState({ active: 'crafting' })
+               this.setState({ active: 'Crafting' })
                this.props.navigation.navigate('Recipes')
              }
            }

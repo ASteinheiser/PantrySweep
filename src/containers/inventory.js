@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Button, ListItem } from 'react-native-material-ui'
+import { Button, ListItem, Icon } from 'react-native-material-ui'
 import styled from 'styled-components/native'
 
 class Inventory extends React.Component {
@@ -47,6 +47,7 @@ class Inventory extends React.Component {
           <View>
             <ListItem
               divider
+              leftElement={<Icon name="gradient" />}
               centerElement={{
                 primaryText: 'Your Virtual Pantry is empty...',
               }}
