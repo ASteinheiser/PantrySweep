@@ -1,55 +1,28 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
+import { Icon, Subheader } from 'react-native-material-ui'
+import { NavigationActions } from 'react-navigation'
 import Camera from 'react-native-camera'
 
-import Loading from '../components/loading.js'
-
 class CameraApp extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      loading: false
-    }
-  }
-
-  scanBarcode() {
+  scanBarcode(e) {
     this.camera.capture()
       .then(data => {
-        // this.props.navigation.back()
-        this.setState({ loading: true })
-        // RNFetchBlob.fs.readFile(data.path, 'base64')
-          // .then((image) => {
-            // var options = {
-            //   method: 'POST',
-            //   headers: {
-            //     'Accept': 'application/json',
-            //     'Content-Type': 'application/json'
-            //   },
-            //   body: JSON.stringify({ image: image })
-            // }
-            // fetch('http://34.204.40.255/recognition', options)
-            //   .then(response => response.json())
-            //   .then(responseJson => this.props.navigation.navigate('control', { device: responseJson }))
-            //   .catch(error => console.error(error))
-          // })
+        this.props.navigation.navigate('AddItem', { barcode: e.data })
       })
-      .catch(err => console.error(err))
+      .catch(err => console.log(err))
   }
 
   render() {
-    var display = (<Camera
-                    ref={(cam) => { this.camera = cam }}
-                    captureTarget={Camera.constants.CaptureTarget.temp}
-                    style={styles.preview}
-                    aspect={Camera.constants.Aspect.fill}>
-                    <Text style={styles.capture} onPress={this.scanBarcode.bind(this)}>[CAPTURE]</Text>
-                  </Camera>)
-
-    if (this.state.loading) display = <Loading />
-
     return (
       <View style={styles.container}>
-        {display}
+        <Camera
+          ref={(cam) => {
+            this.camera = cam;
+          }}
+          onBarCodeRead={this.scanBarcode.bind(this)}
+          style={styles.preview}
+          aspect={Camera.constants.Aspect.fill} />
       </View>
     )
   }
@@ -64,14 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center'
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40
   }
 })
 

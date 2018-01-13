@@ -6,7 +6,8 @@ import Router from './src/index.js'
 
 const uiTheme = {
   palette: {
-    primaryColor: COLOR.paperBlue
+    primaryColor: COLOR.paperBlue,
+    accent: COLOR.googleRed,
   }
 }
 
