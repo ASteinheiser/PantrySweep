@@ -1,0 +1,3 @@
+rootProject.name = 'PantrySweep'
+
+include ':app'
