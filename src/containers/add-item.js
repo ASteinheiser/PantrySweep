@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { Button, Icon, Card, Subheader } from 'react-native-material-ui'
+import { NavigationActions } from 'react-navigation'
 import styled from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
@@ -25,11 +26,35 @@ class AddItem extends React.Component {
   }
 
   addItemToInventory = () => {
-    console.log('Adding Item!')
+    let body = this.state.newItem
+    var options = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }
+    fetch(`${BASE_URL}/user/pantry/additem`, options)
+      .then(response => response.json())
+      .then(responseJson => {
+        this.props.navigation.dispatch(NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Inventory'})
+          ]
+        }))
+      })
+      .catch(error => console.log(error))
   }
 
   backToInventory = () => {
-    console.log('Back to Inventory!')
+    this.props.navigation.dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Inventory'})
+      ]
+    }))
   }
 
   render() {
