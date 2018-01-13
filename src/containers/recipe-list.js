@@ -18,11 +18,15 @@ class RecipeList extends React.Component {
   render() {
     return (
       <Container>
-        <Button
-          raised
-          primary
-          text="Refresh"
-          onPress={this.reloadRecipes} />
+        <WhiteBg>
+          <Margin>
+            <Button
+              raised
+              primary
+              text="Load More Recipes"
+              onPress={this.reloadRecipes} />
+          </Margin>
+        </WhiteBg>
         {
           this.state.recipeList ?
           <View>
@@ -57,4 +61,12 @@ export default RecipeList
 
 const Container = styled.View`
   flex: 1;
+`
+
+const Margin = styled.View`
+  margin: 15px 20px;
+`
+
+const WhiteBg = styled.View`
+  background-color: white;
 `

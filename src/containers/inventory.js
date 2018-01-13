@@ -18,11 +18,15 @@ class Inventory extends React.Component {
   render() {
     return (
       <Container>
-        <Button
-          raised
-          primary
-          text="Scan Food"
-          onPress={this.nextPage} />
+        <WhiteBg>
+          <Margin>
+            <Button
+              raised
+              primary
+              text="Scan Food"
+              onPress={this.nextPage} />
+          </Margin>
+        </WhiteBg>
         {
           this.state.foodItems ?
           <View>
@@ -57,4 +61,12 @@ export default Inventory
 
 const Container = styled.View`
   flex: 1;
+`
+
+const Margin = styled.View`
+  margin: 15px 20px;
+`
+
+const WhiteBg = styled.View`
+  background-color: white;
 `

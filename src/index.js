@@ -1,5 +1,6 @@
 import { TabNavigator } from 'react-navigation'
 
+import BottomNavigation from './containers/bottom-navigation.js'
 import Pantry from './routers/pantry.js'
 import Recipes from './routers/recipes.js'
 
@@ -19,18 +20,8 @@ const Router = TabNavigator(
     }
   },
   {
-    tabBarPosition: 'top',
-    animationEnabled: true,
-    tabBarOptions: {
-      activeTintColor: '#14568F',
-      labelStyle: {
-        fontSize: 18
-      },
-      style: {
-        marginTop: 20,
-        paddingTop: 45
-      }
-    }
+    tabBarComponent: BottomNavigation,
+    tabBarPosition: 'bottom'
   }
 )
 
