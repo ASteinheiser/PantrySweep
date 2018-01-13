@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Button, ListItem } from 'react-native-material-ui';
+import { Button, ListItem } from 'react-native-material-ui'
 import styled from 'styled-components/native'
 
 class Inventory extends React.Component {
@@ -18,14 +18,14 @@ class Inventory extends React.Component {
   render() {
     return (
       <Container>
+        <Button
+          raised
+          primary
+          text="Scan Food"
+          onPress={this.nextPage} />
         {
           this.state.foodItems ?
           <View>
-            <Button
-              raised
-              primary
-              text="Add Food to Pantry"
-              onPress={this.nextPage} />
             {
               this.state.foodItems.map((foodItem) => {
                 return (
@@ -41,11 +41,6 @@ class Inventory extends React.Component {
           </View>
           :
           <View>
-            <Button
-              raised
-              primary
-              text="Add Food to Pantry"
-              onPress={this.nextPage} />
             <ListItem
               divider
               centerElement={{

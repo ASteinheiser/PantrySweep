@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AppRegistry } from 'react-native'
-import { COLOR, ThemeProvider } from 'react-native-material-ui';
+import { COLOR, ThemeProvider } from 'react-native-material-ui'
 
 import Router from './src/index.js'
 
