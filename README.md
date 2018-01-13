@@ -1,6 +1,6 @@
 # Pantry Sweep
 
-Pantry Sweep is an Android and iOS application that helps people clean out their pantries by suggesting delicious recipes from food they already have
+Pantry Sweep is an Android and iOS application that helps people clean out their pantries by suggesting delicious recipes from food they already have...
 
 ## Install
 ```
