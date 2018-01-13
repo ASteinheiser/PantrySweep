@@ -1,13 +1,36 @@
-import { StackNavigator } from 'react-navigation'
+import { TabNavigator } from 'react-navigation'
 
-import Home from './containers/home.js'
+import Pantry from './routers/pantry.js'
+import Recipes from './routers/recipes.js'
 
-const Router = StackNavigator(
+const Router = TabNavigator(
   {
-    home: { screen: Home }
+    Pantry: {
+      screen: Pantry,
+      navigationOptions: {
+        title: 'Virtual Pantry'
+      }
+    },
+    Recipes: {
+      screen: Recipes,
+      navigationOptions: {
+        title: 'Crafting'
+      }
+    }
   },
   {
-    initialRouteName: 'home'
+    tabBarPosition: 'top',
+    animationEnabled: true,
+    tabBarOptions: {
+      activeTintColor: '#14568F',
+      labelStyle: {
+        fontSize: 18
+      },
+      style: {
+        marginTop: 20,
+        paddingTop: 45
+      }
+    }
   }
 )
 
