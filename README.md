@@ -2,7 +2,7 @@
 
 Pantry Sweep is an Android and iOS application that helps people clean out their pantries by suggesting delicious recipes from food they already have...
 
-## Install
+## Install Dependencies
 ```
 git clone git@github.com:ASteinheiser/PantrySweep.git
 npm install
@@ -12,4 +12,10 @@ npm install
 ```
 react-native run-ios
 react-native run-android
+```
+
+## Install To Android Device
+```
+cd android/ && ./gradlew assembleRelease
+react-native run-android --variant=release
 ```
