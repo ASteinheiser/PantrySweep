@@ -22,7 +22,7 @@ class AddItem extends React.Component {
     fetch(`${BASE_URL}/food?upc=${this.state.barcode}`, { method: 'GET' })
       .then(response => response.json())
       .then(responseJson => this.setState({ newItem: responseJson }))
-      .catch(error => this.setState({ error }))
+      .catch(error => console.log(error))
   }
 
   addItemToInventory = () => {

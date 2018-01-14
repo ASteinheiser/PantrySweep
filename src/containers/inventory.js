@@ -3,12 +3,21 @@ import { View } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-material-ui'
 import styled from 'styled-components/native'
 
+const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
+
 class Inventory extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       foodItems: null
     }
+  }
+
+  componentWillMount() {
+    fetch(`${BASE_URL}/user/pantry/getitem`, { method: 'GET' })
+      .then(response => response.json())
+      .then(responseJson => this.setState({ foodItems: responseJson }))
+      .catch(error => console.log(error))
   }
 
   nextPage = () => {
@@ -31,9 +40,10 @@ class Inventory extends React.Component {
           this.state.foodItems ?
           <View>
             {
-              this.state.foodItems.map((foodItem) => {
+              this.state.foodItems.map((foodItem, key) => {
                 return (
                   <ListItem
+                    key={key}
                     divider
                     centerElement={{
                       primaryText: foodItem.name,
