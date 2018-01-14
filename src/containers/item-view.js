@@ -52,6 +52,17 @@ class ItemView extends React.Component {
                 <Subheader lines={2} text={this.state.item.name} />
               </HeaderMargin>
               <MarginLeft>
+                <Subheader text='Nutritional Information:' />
+                <Margin>
+                  <Text>
+                    { 'Calories: ' + this.state.item.calories }
+                  </Text>
+                  {
+                    Object.keys(this.state.item.totalNutrients).map((key) => {
+                      return <Text key={key}>{ this.state.item.totalNutrients[key].label + ': ' + parseInt(this.state.item.totalNutrients[key].quantity) + this.state.item.totalNutrients[key].unit }</Text>
+                    })
+                  }
+                </Margin>
                 <Subheader text='Allergy Information:' />
                 <Margin>
                   <Text>
@@ -90,7 +101,7 @@ class ItemView extends React.Component {
                       raised
                       accent
                       text="Delete This Item"
-                      onPress={this.deleteItem} />
+                      onLongPress={this.deleteItem} />
                   </Margin>
                 </WhiteBg>
               </TopMargin>

@@ -23,7 +23,7 @@ class RecipeList extends React.Component {
             <Button
               raised
               primary
-              text="Load More Recipes"
+              text="Fetch Recipes"
               onPress={this.reloadRecipes} />
           </Margin>
         </WhiteBg>
@@ -49,7 +49,13 @@ class RecipeList extends React.Component {
               divider
               leftElement={<Icon name="import-contacts" />}
               centerElement={{
-                primaryText: 'You have no recipes...',
+                primaryText: 'You have no recipes!',
+              }} />
+            <ListItem
+              divider
+              leftElement={<Icon name="help-outline" />}
+              centerElement={{
+                primaryText: 'Feature coming soon...',
               }} />
           </View>
         }
