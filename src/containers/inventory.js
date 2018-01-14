@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Text, View, ScrollView } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-material-ui'
 import styled from 'styled-components/native'
 
@@ -24,9 +24,21 @@ class Inventory extends React.Component {
     this.props.navigation.navigate('Camera')
   }
 
+  deleteItem = (e) => {
+    console.log(e)
+  }
+
+  viewItem = (e) => {
+    console.log(e)
+  }
+
+  onPress = (e) => {
+    console.log(e)
+  }
+
   render() {
     return (
-      <Container>
+      <ScrollView>
         <WhiteBg>
           <Margin>
             <Button
@@ -45,10 +57,12 @@ class Inventory extends React.Component {
                   <ListItem
                     key={key}
                     divider
-                    centerElement={{
-                      primaryText: foodItem.name,
-                    }}
-                    onPress={() => {}} />
+                    onRightElementPress={this.deleteItem}
+                    onCenterElementPress={this.viewItem}
+                    leftElement={<Icon name="keyboard-arrow-right" />}
+                    rightElement={<MarginRight><Icon color='#8e0000' name="delete-forever" /></MarginRight>}
+                    centerElement={<MarginRight><Text>{foodItem.name}</Text></MarginRight>}
+                    onPress={this.onPress} />
                 )
               })
             }
@@ -60,19 +74,14 @@ class Inventory extends React.Component {
               leftElement={<Icon name="gradient" />}
               centerElement={{
                 primaryText: 'Your Virtual Pantry is empty...',
-              }}
-              onPress={() => {}} />
+              }} />
           </View>
         }
-      </Container>
+      </ScrollView>
     )
   }
 }
 export default Inventory
-
-const Container = styled.View`
-  flex: 1;
-`
 
 const Margin = styled.View`
   margin: 15px 20px;
@@ -80,4 +89,8 @@ const Margin = styled.View`
 
 const WhiteBg = styled.View`
   background-color: white;
+`
+
+const MarginRight = styled.View`
+  margin-right: 20px;
 `
