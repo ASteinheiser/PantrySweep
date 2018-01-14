@@ -50,8 +50,7 @@ class RecipeList extends React.Component {
               leftElement={<Icon name="import-contacts" />}
               centerElement={{
                 primaryText: 'You have no recipes...',
-              }}
-              onPress={() => {}} />
+              }} />
           </View>
         }
       </Container>

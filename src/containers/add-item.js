@@ -21,7 +21,13 @@ class AddItem extends React.Component {
 
     fetch(`${BASE_URL}/food?upc=${this.state.barcode}`, { method: 'GET' })
       .then(response => response.json())
-      .then(responseJson => this.setState({ newItem: responseJson }))
+      .then(responseJson => {
+        if(responseJson.errorType) {
+          this.setState({ error: 'Unknown Barcode...' })
+        } else {
+          this.setState({ newItem: responseJson })
+        }
+      })
       .catch(error => console.log(error))
   }
 
@@ -62,7 +68,7 @@ class AddItem extends React.Component {
       <Container>
         <Card>
           {
-            this.state.newItem ?
+            this.state.newItem && !this.state.error ?
             <View>
               <HeaderMargin>
                 <Subheader text={'Item Found:'} />
@@ -132,9 +138,27 @@ class AddItem extends React.Component {
               </TopMargin>
             </View>
             :
-            <LoadingMargin>
-              <Subheader text={ this.state.error ? error.message : 'Loading...'} />
-            </LoadingMargin>
+            <View>
+              {
+                 this.state.error ?
+                 <LoadingMargin>
+                   <Subheader text={this.state.error} />
+                   <WhiteBg>
+                     <Margin>
+                       <Button
+                         raised
+                         accent
+                         text="Back to Inventory"
+                         onPress={this.backToInventory} />
+                     </Margin>
+                   </WhiteBg>
+                 </LoadingMargin>
+                 :
+                 <LoadingMargin>
+                   <Subheader text={'Loading...'} />
+                 </LoadingMargin>
+              }
+            </View>
           }
         </Card>
       </Container>
