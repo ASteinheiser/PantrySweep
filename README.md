@@ -19,3 +19,9 @@ react-native run-android
 cd android/ && ./gradlew assembleRelease
 react-native run-android --variant=release
 ```
+
+## Install To iOS Device
+```
+open /ios/PantrySweep.xcodeproj in XCode
+run project
+```
