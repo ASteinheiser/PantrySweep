@@ -1,7 +1,9 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-material-ui'
 import styled from 'styled-components/native'
+
+import recipes from '../config/recipes.json'
 
 class RecipeList extends React.Component {
   constructor(props) {
@@ -11,8 +13,8 @@ class RecipeList extends React.Component {
     }
   }
 
-  reloadRecipes = () => {
-    console.log('More recipes!')
+  getRecipes = () => {
+    this.setState({ recipeList: recipes })
   }
 
   render() {
@@ -24,21 +26,21 @@ class RecipeList extends React.Component {
               raised
               primary
               text="Fetch Recipes"
-              onPress={this.reloadRecipes} />
+              onPress={this.getRecipes} />
           </Margin>
         </WhiteBg>
         {
           this.state.recipeList ?
           <View>
             {
-              this.state.recipeList.map((recipeItem) => {
+              Object.keys(this.state.recipeList).map((recipeItem) => {
                 return (
                   <ListItem
+                    key={this.state.recipeList[recipeItem].id}
                     divider
-                    centerElement={{
-                      primaryText: recipeItem.name,
-                    }}
-                    onPress={() => {}} />
+                    leftElement={<Icon name="keyboard-arrow-right" />}
+                    centerElement={<MarginRight><Text>{this.state.recipeList[recipeItem].name}</Text></MarginRight>}
+                    onPress={() => this.props.navigation.navigate('RecipeView', { recipe: this.state.recipeList[recipeItem] })} />
                 )
               })
             }
@@ -71,6 +73,10 @@ const Container = styled.View`
 
 const Margin = styled.View`
   margin: 15px 20px;
+`
+
+const MarginRight = styled.View`
+  margin-right: 20px;
 `
 
 const WhiteBg = styled.View`
