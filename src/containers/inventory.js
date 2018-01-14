@@ -24,18 +24,6 @@ class Inventory extends React.Component {
     this.props.navigation.navigate('Camera')
   }
 
-  deleteItem = (e) => {
-    console.log(e)
-  }
-
-  viewItem = (e) => {
-    console.log(e)
-  }
-
-  onPress = (e) => {
-    console.log(e)
-  }
-
   render() {
     return (
       <ScrollView>
@@ -57,12 +45,9 @@ class Inventory extends React.Component {
                   <ListItem
                     key={key}
                     divider
-                    onRightElementPress={this.deleteItem}
-                    onCenterElementPress={this.viewItem}
                     leftElement={<Icon name="keyboard-arrow-right" />}
-                    rightElement={<MarginRight><Icon color='#8e0000' name="delete-forever" /></MarginRight>}
                     centerElement={<MarginRight><Text>{foodItem.name}</Text></MarginRight>}
-                    onPress={this.onPress} />
+                    onPress={() => this.props.navigation.navigate('ItemView', { item: foodItem })} />
                 )
               })
             }

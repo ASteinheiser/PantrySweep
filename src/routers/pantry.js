@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation'
 import AddItem from '../containers/add-item.js'
 import Camera from '../containers/camera.js'
 import Inventory from '../containers/inventory.js'
+import ItemView from '../containers/item-view.js'
 
 const Pantry = StackNavigator(
   {
@@ -22,6 +23,12 @@ const Pantry = StackNavigator(
       screen: AddItem,
       navigationOptions: {
         title: 'Add Item'
+      }
+    },
+    ItemView: {
+      screen: ItemView,
+      navigationOptions: {
+        title: 'View Item'
       }
     }
   },
