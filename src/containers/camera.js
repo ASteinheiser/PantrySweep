@@ -25,6 +25,7 @@ class CameraApp extends React.Component {
           ref={(cam) => {
             this.camera = cam;
           }}
+          captureTarget={Camera.constants.CaptureTarget.temp}
           onBarCodeRead={this.scanBarcode.bind(this)}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill} />

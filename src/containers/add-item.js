@@ -22,10 +22,14 @@ class AddItem extends React.Component {
     fetch(`${BASE_URL}/food?upc=${this.state.barcode}`, { method: 'GET' })
       .then(response => response.json())
       .then(responseJson => {
-        if(responseJson.errorType) {
-          this.setState({ error: 'Unknown Barcode...' })
+        if(!responseJson.message) {
+          if(responseJson.errorType) {
+            this.setState({ error: 'Unknown Barcode...' })
+          } else {
+            this.setState({ newItem: responseJson })
+          }
         } else {
-          this.setState({ newItem: responseJson })
+          this.setState({ error: 'Internal Server Error...' })
         }
       })
       .catch(error => console.log(error))

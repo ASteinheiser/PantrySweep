@@ -17,7 +17,7 @@ class Inventory extends React.Component {
     fetch(`${BASE_URL}/user/pantry/getitem`, { method: 'GET' })
       .then(response => response.json())
       .then(responseJson => {
-        if(responseJson.message !== 'Internal server error') {
+        if(!responseJson.message) {
           this.setState({ foodItems: responseJson })
         }
       })
