@@ -11,7 +11,7 @@ class BottomNav extends React.Component {
 
   render() {
     return (
-      <BottomNavigation active={this.state.active} hidden={false} >
+      <BottomNavigation active={this.state.active} hidden={false}>
         <BottomNavigation.Action
             key="Pantry"
             icon="kitchen"
@@ -31,7 +31,17 @@ class BottomNav extends React.Component {
                this.props.navigation.navigate('Recipes')
              }
            }
-       />
+         />
+         <BottomNavigation.Action
+            key="Schedule"
+            icon="book"
+            label="Schedule"
+            onPress={() => {
+                this.setState({ active: 'Schedule' })
+                this.props.navigation.navigate('Schedule')
+              }
+            }
+          />
       </BottomNavigation>
     )
   }

@@ -3,6 +3,7 @@ import { TabNavigator } from 'react-navigation'
 import BottomNavigation from './containers/bottom-navigation.js'
 import Pantry from './routers/pantry.js'
 import Recipes from './routers/recipes.js'
+import Schedule from './routers/schedule.js'
 
 const Router = TabNavigator(
   {
@@ -16,6 +17,12 @@ const Router = TabNavigator(
       screen: Recipes,
       navigationOptions: {
         title: 'Crafting'
+      }
+    },
+    Schedule: {
+      screen: Schedule,
+      navigationOptions: {
+        title: 'Schedule'
       }
     }
   },
