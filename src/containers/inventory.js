@@ -16,7 +16,11 @@ class Inventory extends React.Component {
   componentWillMount() {
     fetch(`${BASE_URL}/user/pantry/getitem`, { method: 'GET' })
       .then(response => response.json())
-      .then(responseJson => this.setState({ foodItems: responseJson }))
+      .then(responseJson => {
+        if(responseJson.message !== 'Internal server error') {
+          this.setState({ foodItems: responseJson })
+        }
+      })
       .catch(error => console.log(error))
   }
 
@@ -57,9 +61,7 @@ class Inventory extends React.Component {
             <ListItem
               divider
               leftElement={<Icon name="gradient" />}
-              centerElement={{
-                primaryText: 'Your Virtual Pantry is empty...',
-              }} />
+              centerElement={{ primaryText: 'Your Virtual Pantry is empty...' }} />
           </View>
         }
       </ScrollView>
