@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-material-ui'
 import styled from 'styled-components/native'
 
@@ -67,7 +67,7 @@ class RecipeList extends React.Component {
 }
 export default RecipeList
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
 `
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 import { Button, Icon, Card, Subheader } from 'react-native-material-ui'
 import { NavigationActions } from 'react-navigation'
 import styled from 'styled-components/native'
@@ -171,7 +171,7 @@ class AddItem extends React.Component {
 }
 export default AddItem
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
   margin-top: 10px;
   overflow: scroll;
