@@ -25,6 +25,7 @@ class RecipeList extends React.Component {
             <Button
               raised
               primary
+              icon="chrome-reader-mode"
               text="Fetch Recipes"
               onPress={this.getRecipes} />
           </Margin>
@@ -49,16 +50,7 @@ class RecipeList extends React.Component {
           <View>
             <ListItem
               divider
-              leftElement={<Icon name="import-contacts" />}
-              centerElement={{
-                primaryText: 'You have no recipes!',
-              }} />
-            <ListItem
-              divider
-              leftElement={<Icon name="help-outline" />}
-              centerElement={{
-                primaryText: 'Feature coming soon...',
-              }} />
+              centerElement={<CenterText>Your Recipe Book is empty...</CenterText>} />
           </View>
         }
       </Container>
@@ -81,4 +73,9 @@ const MarginRight = styled.View`
 
 const WhiteBg = styled.View`
   background-color: white;
+`
+
+const CenterText = styled.Text`
+  text-align: center;
+  font-size: 15px;
 `

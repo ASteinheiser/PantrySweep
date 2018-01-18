@@ -36,6 +36,7 @@ class Inventory extends React.Component {
             <Button
               raised
               primary
+              icon="camera"
               text="Scan Food"
               onPress={this.nextPage} />
           </Margin>
@@ -60,8 +61,7 @@ class Inventory extends React.Component {
           <View>
             <ListItem
               divider
-              leftElement={<Icon name="gradient" />}
-              centerElement={{ primaryText: 'Your Virtual Pantry is empty...' }} />
+              centerElement={<CenterText>Your Virtual Pantry is empty...</CenterText>} />
           </View>
         }
       </ScrollView>
@@ -80,4 +80,9 @@ const WhiteBg = styled.View`
 
 const MarginRight = styled.View`
   margin-right: 20px;
+`
+
+const CenterText = styled.Text`
+  text-align: center;
+  font-size: 15px;
 `

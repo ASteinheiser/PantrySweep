@@ -8,22 +8,13 @@ import Schedule from './routers/schedule.js'
 const Router = TabNavigator(
   {
     Pantry: {
-      screen: Pantry,
-      navigationOptions: {
-        title: 'Virtual Pantry'
-      }
+      screen: Pantry
     },
     Recipes: {
-      screen: Recipes,
-      navigationOptions: {
-        title: 'Crafting'
-      }
+      screen: Recipes
     },
     Schedule: {
-      screen: Schedule,
-      navigationOptions: {
-        title: 'Schedule'
-      }
+      screen: Schedule
     }
   },
   {

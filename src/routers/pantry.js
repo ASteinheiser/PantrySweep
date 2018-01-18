@@ -14,15 +14,12 @@ const Pantry = StackNavigator(
       }
     },
     Inventory: {
-      screen: Inventory,
-      navigationOptions: {
-        title: 'Inventory'
-      }
+      screen: Inventory
     },
     AddItem: {
       screen: AddItem,
       navigationOptions: {
-        title: 'Add Item'
+        title: 'Item Scanned'
       }
     },
     ItemView: {

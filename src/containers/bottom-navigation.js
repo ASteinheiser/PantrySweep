@@ -15,7 +15,7 @@ class BottomNav extends React.Component {
         <BottomNavigation.Action
             key="Pantry"
             icon="kitchen"
-            label="Virtual Pantry"
+            label="Storage"
             onPress={() => {
                 this.setState({ active: 'Pantry' })
                 this.props.navigation.navigate('Pantry')
@@ -34,8 +34,8 @@ class BottomNav extends React.Component {
          />
          <BottomNavigation.Action
             key="Schedule"
-            icon="book"
-            label="Schedule"
+            icon="view-list"
+            label="Tasks"
             onPress={() => {
                 this.setState({ active: 'Schedule' })
                 this.props.navigation.navigate('Schedule')

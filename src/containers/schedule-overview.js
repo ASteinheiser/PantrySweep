@@ -8,8 +8,7 @@ class ScheduleOverview extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      taskList: [],
-      temp: 0
+      taskList: []
     }
   }
 
@@ -25,6 +24,7 @@ class ScheduleOverview extends React.Component {
             <Button
               raised
               primary
+              icon="add-to-photos"
               text="Add Task"
               onPress={this.addTask} />
           </Margin>
@@ -54,10 +54,7 @@ class ScheduleOverview extends React.Component {
           <View>
             <ListItem
               divider
-              leftElement={<Icon name="import-contacts" />}
-              centerElement={{
-                primaryText: 'You have no tasks!',
-              }} />
+              centerElement={<CenterText>Your Task Log is empty...</CenterText>} />
           </View>
         }
       </Container>
@@ -80,4 +77,9 @@ const MarginRight = styled.View`
 
 const WhiteBg = styled.View`
   background-color: white;
+`
+
+const CenterText = styled.Text`
+  text-align: center;
+  font-size: 15px;
 `

@@ -1,35 +1,35 @@
 module.exports = {
   "0": {
     "id": 0,
-    "name": "TATER TOTS CASSEROLE",
+    "name": "Tater Tots Casserole",
     "cookTime": "55 Minutes",
     "ingredients": "1 lb lean ground beef; 1⁄2 medium onion, chopped; 1 (10 1/2 ounce) can condensed cream of celery soup; frozen tater tots; 1 cup shredded cheddar cheese",
     "instructions": "Preheat oven to 350 degrees. Brown ground beef. Saute onion. In a casserole dish, combine ground beef, sauteed onion, cream of celery soup. Top mixture with tater tots. Sprinkle shredded cheddar cheese over top of tater tots. Bake in oven for 30-40 minutes."
   },
   "1": {
     "id": 1,
-    "name": "HAMBURGER SKILLET SUPPER",
+    "name": "Hamburger Skillet Supper",
     "cookTime": "15 Minutes",
     "ingredients": "1 lb ground beef; 1 (3 ounce) package ramen noodles (I prefer beef flavor); 2 cups water; 2 cups vegetables (frozen mixed veggies, thawed; peas and corn work perfect!)",
     "instructions": "In a skillet, cook beef until no longer pink; drain. Add noodles with contents of seasoning packet and water. Bring to a boil; cook for 3 minutes or until noodles are tender. Add the veggies and cook until tender, about 3 minutes as well. Makes about 4 servings. Here is another way to do it: Cook the beef as stated previously. During this time, heat up a saucepan of water to cook the ramen noodles in. Rather than just using 1 packet, use 2 packets of the beef flavor ramen noodles. When cooking the noodles, cook them without the flavoring. During this time, (after you drain the ground beef) add the veggies to the meat and continue to cook. As the veggies become cooked, add the two packets of flavoring to the beef-veggie mixture. The ramen noodles don't take long to cook, so be sure to watch them. When they are done, drain them, and add them to the beef-veggie mixture. The completed dish will have more flavor, and more noodles for the noodle lovers! Enjoy!"
   },
   "2": {
     "id": 2,
-    "name": "PORK AND NOODLES",
+    "name": "Pork and Noodles",
     "cookTime": "4 Hours",
     "ingredients": "1 -2 lb pork loin; 2 (14 ounce) cans low sodium beef broth; 1 (16 ounce) bag egg noodles; salt; pepper",
     "instructions": "Sprinkle all sides of your pork loin liberally with salt and pepper. Spray inside of crockpot with spray cooking oil (I do this because it makes cleaning the crock so much easier). Place pork in crockpot along with about 1/4 cup of water and cook on low all day or high for about 3-4 hours (cooking time varies according to your crockpot and the size of your pork loin -- if it is large and I need it to be done faster, I will cut the loin into smaller chunks). You will know when it is done, when you can shred it with a fork. About 15-20 minutes before I want to serve, in a pot on the stove, I bring the cans of broth to just the point of boiling and then I add the bag of noodles and cook basically according to the directions on the package. Hopefully, most of the liquid will be absorded, if any is left, you might want to drain it off. For this dish, the noodles should NOT be soupy. While the noodles are cooking, remove your pork loin from the crockpot and gently shred the pork. We like it not to be stringy and not to have chunks that are too big. Just nice bite sized pieces. When the noodles are done, add the pork to the pot of noodles and stir so pork is distributed throughout. If pork wasn't warm when you added it, let the noodles/pork reheat. Taste - if bland, you'll need to add more salt and pepper. Serve with warm bread and a salad. Nice comfort food. NOTE - my mom cooks the pork on the stove in a pot. After salt/peppering the pork, I think she browns all sides of the loin and then turns down to low and cooks for 2-3 hours - with a little water or broth in the bottom of the pan. Then she removes the pork to be shredded and in the same pot cooks her noodles and then adds pork back. TIP - if you aren't worried about watching fat, add the juice/drippings that are in the bottom of the crockpot to the cans of broth - the drippings add an extra depth to the flavor of the dish! NOTE - if your pork loin is on the small side (closer to 1 pound), you will want to use less noodles and less broth. You should be able to get pork with every bite of noodles."
   },
   "3": {
     "id": 3,
-    "name": "VEGETABLE LASAGNA",
+    "name": "Vegetable Lasagna",
     "cookTime": "1 Hour",
     "ingredients": "1 (28 ounce) jar pasta sauce (good quality and preferably natural); 8 ounces no-boil lasagna noodles; 15 ounces part-skim ricotta cheese or 1 lb drained and mashed soft tofu; 3 cups lightly steamed vegetables (any veggies ie broccoli, mushrooms...); 8 ounces part-skim mozzarella cheese, grated",
     "instructions": "Preheat oven to 350°F. Spread a thin layer of sauce on the bottom of a 9\"x13\" casserole. Cover with a layer of noodles (3 or 4 noodles should be enough). Place ricotta in a bowl and add about 1/4 cup of water, stirring until blended. Spread 1/3 of this mixture over the pasta (you can use a cake spatula). Spread 1/3 of the remaining pasta sauce over the cheese. Spread 1/3 of the vegetables over the sauce. Sprinkle 1/3 of the mozzarella over the veggies. Repeat twice starting with the noodles and ending with the mozzarella. Cover and bake until the noodles are tender (35 to 40 minutes). Remove cover and bake 5 minutes until cheese starts to become golden. Remove from oven and allow to stand for 5 minutes before cutting into squares."
   },
   "4": {
     "id": 4,
-    "name": "BEEF STEW",
+    "name": "Beef Stew",
     "cookTime": "5.5 Hours",
     "ingredients": "2 lbs stewing beef; 4 carrots, cut up; 2 onions, cut up; 4 potatoes, cut up; 1 (10 1/2 ounce) can cream of mushroom soup, diluted with below; 1⁄2 cup water",
     "instructions": "Layer in large casserole or Dutch oven in order given. Cover and bake for 5 hours at 275 degrees fahrenheit. Note: This can also be cooked in a crock pot on high."
