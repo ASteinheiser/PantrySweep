@@ -1,8 +1,8 @@
-import React from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import React                             from 'react'
+import { ScrollView, View, Text }        from 'react-native'
 import { Button, Icon, Card, Subheader } from 'react-native-material-ui'
-import { NavigationActions } from 'react-navigation'
-import styled from 'styled-components/native'
+import { NavigationActions }             from 'react-navigation'
+import styled                            from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -54,24 +54,24 @@ class ItemView extends React.Component {
               <MarginLeft>
                 <Subheader text='Nutritional Information:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     { 'Calories: ' + this.state.item.calories }
-                  </Text>
+                  </ColoredText>
                   {
                     Object.keys(this.state.item.totalNutrients).map((key) => {
-                      return <Text key={key}>{ this.state.item.totalNutrients[key].label + ': ' + parseInt(this.state.item.totalNutrients[key].quantity) + this.state.item.totalNutrients[key].unit }</Text>
+                      return <ColoredText key={key}>{ this.state.item.totalNutrients[key].label + ': ' + parseInt(this.state.item.totalNutrients[key].quantity) + this.state.item.totalNutrients[key].unit }</ColoredText>
                     })
                   }
                 </Margin>
                 <Subheader text='Allergy Information:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     { this.state.item.cautions.map((caution) => caution + "   " ) }
-                  </Text>
+                  </ColoredText>
                 </Margin>
                 <Subheader text='Diet Restrictions:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     {
                       this.state.item.healthLabels.map((label) => {
                         if(label === 'VEGAN') {
@@ -85,13 +85,13 @@ class ItemView extends React.Component {
                         }
                       })
                     }
-                  </Text>
+                  </ColoredText>
                 </Margin>
                 <Subheader text='Ingredients:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     { this.state.item.ingredients[0].parsed[0].foodContentsLabel }
-                  </Text>
+                  </ColoredText>
                 </Margin>
               </MarginLeft>
               <TopMargin>
@@ -100,6 +100,7 @@ class ItemView extends React.Component {
                     <Button
                       raised
                       accent
+                      style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
                       text="Delete This Item"
                       onLongPress={this.deleteItem} />
                   </Margin>
@@ -119,8 +120,8 @@ class ItemView extends React.Component {
 export default ItemView
 
 const Container = styled.ScrollView`
-  margin-bottom: 10px;
-  margin-top: 10px;
+  background: #303030;
+  flex: 1;
 `
 
 const Margin = styled.View`
@@ -145,4 +146,8 @@ const MarginLeft = styled.View`
 
 const TopMargin = styled.View`
   margin-top: 20px;
+`
+
+const ColoredText = styled.Text`
+  color: rgb(255, 255, 255);
 `

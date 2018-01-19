@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
+    "material-ui": "^0.20.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-camera": "^0.12.0",
@@ -24,5 +25,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
   }
 }

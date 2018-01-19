@@ -6,7 +6,10 @@ import RecipeView from '../containers/recipe-view.js'
 const Recipes = StackNavigator(
   {
     RecipeList: {
-      screen: RecipeList
+      screen: RecipeList,
+      navigationOptions: {
+        header: null
+      }
     },
     RecipeView: {
       screen: RecipeView,

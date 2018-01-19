@@ -1,8 +1,8 @@
-import React from 'react'
+import React                      from 'react'
 import { View, StyleSheet, Text } from 'react-native'
-import { Icon, Subheader } from 'react-native-material-ui'
-import { NavigationActions } from 'react-navigation'
-import Camera from 'react-native-camera'
+import { Icon, Subheader }        from 'react-native-material-ui'
+import { NavigationActions }      from 'react-navigation'
+import Camera                     from 'react-native-camera'
 
 class CameraApp extends React.Component {
   scanBarcode(e) {

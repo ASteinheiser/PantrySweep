@@ -1,7 +1,7 @@
-import React from 'react'
+import React                      from 'react'
 import { ScrollView, View, Text } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-material-ui'
-import styled from 'styled-components/native'
+import styled                     from 'styled-components/native'
 
 import recipes from '../config/recipes.json'
 
@@ -20,16 +20,15 @@ class RecipeList extends React.Component {
   render() {
     return (
       <Container>
-        <WhiteBg>
-          <Margin>
-            <Button
-              raised
-              primary
-              icon="chrome-reader-mode"
-              text="Fetch Recipes"
-              onPress={this.getRecipes} />
-          </Margin>
-        </WhiteBg>
+        <Margin>
+          <Button
+            raised
+            primary
+            style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+            icon="chrome-reader-mode"
+            text="Fetch Recipes"
+            onPress={this.getRecipes} />
+        </Margin>
         {
           this.state.recipeList ?
           <View>
@@ -40,7 +39,7 @@ class RecipeList extends React.Component {
                     key={this.state.recipeList[recipeItem].id}
                     divider
                     leftElement={<Icon name="keyboard-arrow-right" />}
-                    centerElement={<MarginRight><Text>{this.state.recipeList[recipeItem].name}</Text></MarginRight>}
+                    centerElement={{primaryText: this.state.recipeList[recipeItem].name}}
                     onPress={() => this.props.navigation.navigate('RecipeView', { recipe: this.state.recipeList[recipeItem] })} />
                 )
               })
@@ -50,7 +49,7 @@ class RecipeList extends React.Component {
           <View>
             <ListItem
               divider
-              centerElement={<CenterText>Your Recipe Book is empty...</CenterText>} />
+              centerElement={{primaryText: 'Your Recipe Book is empty...'}} />
           </View>
         }
       </Container>
@@ -60,6 +59,7 @@ class RecipeList extends React.Component {
 export default RecipeList
 
 const Container = styled.ScrollView`
+  background-color: #303030;
   flex: 1;
 `
 
@@ -69,13 +69,4 @@ const Margin = styled.View`
 
 const MarginRight = styled.View`
   margin-right: 20px;
-`
-
-const WhiteBg = styled.View`
-  background-color: white;
-`
-
-const CenterText = styled.Text`
-  text-align: center;
-  font-size: 15px;
 `

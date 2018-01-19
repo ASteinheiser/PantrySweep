@@ -1,17 +1,35 @@
-import React, { Component } from 'react'
-import { AppRegistry } from 'react-native'
-import { COLOR, ThemeProvider } from 'react-native-material-ui'
+import React                from 'react'
+import { AppRegistry }      from 'react-native'
+import { ThemeProvider }    from 'react-native-material-ui'
+import { fade }             from 'material-ui/utils/colorManipulator'
 
-import Router from './src/index.js'
+import Router                          from './src/router.js'
+import { pink800, blueGrey700, white } from './colors.js'
 
 const uiTheme = {
+  // spacing: spacing,
+  // typography: typography,
+  fontFamily: 'Roboto',
   palette: {
-    primaryColor: COLOR.paperBlue,
-    accent: COLOR.googleRed,
+    primaryColor: pink800,
+    accentColor: blueGrey700,
+    primaryTextColor: fade(white, 0.8),
+    secondaryTextColor: fade(white, 0.8),
+    canvasColor: '#303030',
+    borderColor: fade(white, 0.3),
+    disabledColor: fade(white, 0.3),
+    pickerHeaderColor: fade(white, 0.12),
+    clockCircleColor: fade(white, 0.12),
+  },
+  toolbar: {
+    container: {
+      height: 65,
+      marginTop: 20
+    }
   }
 }
 
-export default class PantrySweep extends Component {
+export default class PantrySweep extends React.Component {
   render() {
     return (
       <ThemeProvider uiTheme={uiTheme}>

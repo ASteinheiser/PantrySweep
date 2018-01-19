@@ -1,9 +1,9 @@
 import { StackNavigator } from 'react-navigation'
 
-import AddItem from '../containers/add-item.js'
-import Camera from '../containers/camera.js'
+import AddItem   from '../containers/add-item.js'
+import Camera    from '../containers/camera.js'
 import Inventory from '../containers/inventory.js'
-import ItemView from '../containers/item-view.js'
+import ItemView  from '../containers/item-view.js'
 
 const Pantry = StackNavigator(
   {
@@ -14,12 +14,15 @@ const Pantry = StackNavigator(
       }
     },
     Inventory: {
-      screen: Inventory
+      screen: Inventory,
+      navigationOptions: {
+        header: null
+      }
     },
     AddItem: {
       screen: AddItem,
       navigationOptions: {
-        title: 'Item Scanned'
+        header: null
       }
     },
     ItemView: {

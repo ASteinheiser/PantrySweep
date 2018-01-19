@@ -1,7 +1,7 @@
-import React from 'react'
+import React                      from 'react'
 import { ScrollView, View, Text } from 'react-native'
-import { Icon, Card, Subheader } from 'react-native-material-ui'
-import styled from 'styled-components/native'
+import { Icon, Card, Subheader }  from 'react-native-material-ui'
+import styled                     from 'styled-components/native'
 
 class RecipeView extends React.Component {
   constructor(props) {
@@ -28,21 +28,21 @@ class RecipeView extends React.Component {
               <MarginLeft>
                 <Subheader text='Cook Time:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     { this.state.recipe.cookTime }
-                  </Text>
+                  </ColoredText>
                 </Margin>
                 <Subheader text='Ingredients:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     { this.state.recipe.ingredients }
-                  </Text>
+                  </ColoredText>
                 </Margin>
                 <Subheader text='Instructions:' />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     { this.state.recipe.instructions }
-                  </Text>
+                  </ColoredText>
                 </Margin>
               </MarginLeft>
             </View>
@@ -59,8 +59,8 @@ class RecipeView extends React.Component {
 export default RecipeView
 
 const Container = styled.ScrollView`
-  margin-bottom: 10px;
-  margin-top: 10px;
+  background: #303030;
+  flex: 1;
 `
 
 const Margin = styled.View`
@@ -77,4 +77,8 @@ const LoadingMargin = styled.View`
 
 const MarginLeft = styled.View`
   margin-left: 10px;
+`
+
+const ColoredText = styled.Text`
+  color: rgb(255, 255, 255);
 `

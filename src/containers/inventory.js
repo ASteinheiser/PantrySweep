@@ -1,7 +1,7 @@
-import React from 'react'
+import React                      from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-material-ui'
-import styled from 'styled-components/native'
+import styled                     from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -30,17 +30,25 @@ class Inventory extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <WhiteBg>
-          <Margin>
-            <Button
-              raised
-              primary
-              icon="camera"
-              text="Scan Food"
-              onPress={this.nextPage} />
-          </Margin>
-        </WhiteBg>
+      <Container>
+        <Margin>
+          <Button
+            raised
+            primary
+            style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+            icon="camera"
+            text="Scan Food"
+            onPress={this.nextPage} />
+        </Margin>
+        <Margin>
+          <Button
+            raised
+            accent
+            style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+            icon="check"
+            text="Secondary Button"
+            onPress={() => {}} />
+        </Margin>
         {
           this.state.foodItems ?
           <View>
@@ -51,7 +59,7 @@ class Inventory extends React.Component {
                     key={key}
                     divider
                     leftElement={<Icon name="keyboard-arrow-right" />}
-                    centerElement={<MarginRight><Text>{foodItem.name}</Text></MarginRight>}
+                    centerElement={{primaryText: foodItem.name}}
                     onPress={() => this.props.navigation.navigate('ItemView', { item: foodItem })} />
                 )
               })
@@ -61,28 +69,23 @@ class Inventory extends React.Component {
           <View>
             <ListItem
               divider
-              centerElement={<CenterText>Your Virtual Pantry is empty...</CenterText>} />
+              centerElement={{primaryText: 'Your Virtual Pantry is empty...'}} />
           </View>
         }
-      </ScrollView>
+      </Container>
     )
   }
 }
 export default Inventory
 
+const Container = styled.ScrollView`
+  background-color: #303030;
+`
+
 const Margin = styled.View`
   margin: 15px 20px;
 `
 
-const WhiteBg = styled.View`
-  background-color: white;
-`
-
 const MarginRight = styled.View`
   margin-right: 20px;
-`
-
-const CenterText = styled.Text`
-  text-align: center;
-  font-size: 15px;
 `

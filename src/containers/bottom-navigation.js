@@ -1,4 +1,4 @@
-import React from 'react'
+import React                from 'react'
 import { BottomNavigation } from 'react-native-material-ui'
 
 class BottomNav extends React.Component {

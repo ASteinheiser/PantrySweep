@@ -1,8 +1,8 @@
-import React from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import React                             from 'react'
+import { ScrollView, View, Text }        from 'react-native'
 import { Button, Icon, Card, Subheader } from 'react-native-material-ui'
-import { NavigationActions } from 'react-navigation'
-import styled from 'styled-components/native'
+import { NavigationActions }             from 'react-navigation'
+import styled                            from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -77,9 +77,9 @@ class AddItem extends React.Component {
               <HeaderMargin>
                 <Subheader text={'Item Found:'} />
                 <Margin>
-                  <Text>
+                  <ColoredText>
                     {this.state.newItem.name}
-                  </Text>
+                  </ColoredText>
                 </Margin>
               </HeaderMargin>
               {
@@ -87,9 +87,9 @@ class AddItem extends React.Component {
                 <MarginLeft>
                   <Subheader text='Allergy Information:' />
                   <Margin>
-                    <Text>
+                    <ColoredText>
                       { this.state.newItem.cautions.map((caution) => caution + "   " ) }
-                    </Text>
+                    </ColoredText>
                   </Margin>
                 </MarginLeft>
                 :
@@ -100,7 +100,7 @@ class AddItem extends React.Component {
                 <MarginLeft>
                   <Subheader text='Diet Restrictions:' />
                   <Margin>
-                    <Text>
+                    <ColoredText>
                       {
                         this.state.newItem.healthLabels.map((label) => {
                           if(label === 'VEGAN') {
@@ -114,7 +114,7 @@ class AddItem extends React.Component {
                           }
                         })
                       }
-                    </Text>
+                    </ColoredText>
                   </Margin>
                 </MarginLeft>
                 :
@@ -126,6 +126,7 @@ class AddItem extends React.Component {
                     <Button
                       raised
                       primary
+                      style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
                       text="Add This Item"
                       onPress={this.addItemToInventory} />
                   </Margin>
@@ -135,6 +136,7 @@ class AddItem extends React.Component {
                     <Button
                       raised
                       accent
+                      style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
                       text="Back to Inventory"
                       onPress={this.backToInventory} />
                   </Margin>
@@ -152,6 +154,7 @@ class AddItem extends React.Component {
                        <Button
                          raised
                          accent
+                         style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
                          text="Back to Inventory"
                          onPress={this.backToInventory} />
                      </Margin>
@@ -172,9 +175,8 @@ class AddItem extends React.Component {
 export default AddItem
 
 const Container = styled.ScrollView`
+  background-color: #303030;
   flex: 1;
-  margin-top: 10px;
-  overflow: scroll;
 `
 
 const Margin = styled.View`
@@ -199,4 +201,8 @@ const MarginLeft = styled.View`
 
 const TopMargin = styled.View`
   margin-top: 20px;
+`
+
+const ColoredText = styled.Text`
+  color: rgb(255, 255, 255);
 `

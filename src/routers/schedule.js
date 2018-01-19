@@ -5,7 +5,10 @@ import ScheduleOverview from '../containers/schedule-overview.js'
 const Schedule = StackNavigator(
   {
     ScheduleOverview: {
-      screen: ScheduleOverview
+      screen: ScheduleOverview,
+      navigationOptions: {
+        header: null
+      }
     }
   },
   {
