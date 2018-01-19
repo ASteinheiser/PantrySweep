@@ -23,8 +23,7 @@ const uiTheme = {
   },
   toolbar: {
     container: {
-      height: 65,
-      marginTop: 20
+      height: 65
     }
   }
 }
