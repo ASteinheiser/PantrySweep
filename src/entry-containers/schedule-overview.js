@@ -20,71 +20,77 @@ export default class ScheduleOverview extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Flex>
         <Toolbar
           centerElement='Tasklist'
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        {/* {
-          this.state.showModal ?
-          <Dialog>
-            <Dialog.Title><Text>Add New Task</Text></Dialog.Title>
-            <Dialog.Content>
-              <Text>
-                Enter your task name, details (optional), and category...
-              </Text>
-            </Dialog.Content>
-            <Dialog.Actions>
-              <DialogDefaultActions
-                actions={['Cancel', 'Save']}
-                onActionPress={(action) => { console.log(action) }} />
-            </Dialog.Actions>
-          </Dialog>
-          :
-          <View/>
-        } */}
-        <Margin>
-          <Button
-            raised
-            primary
-            style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-            icon="add-to-photos"
-            text="Add Task"
-            onPress={this.addTask} />
-        </Margin>
-        {
-          this.state.taskList[0] ?
-          <View>
-            {
-              Object.keys(this.state.taskList).map((task) => {
-                return (
-                  <ListItem
-                    key={this.state.taskList[task].id}
-                    divider
-                    leftElement={this.state.taskList[task].active ? <Icon name="check-box-outline-blank" /> : <Icon color='#455a64' name="check-box" />}
-                    onLeftElementPress={() => {
-                      const newState = _.cloneDeep(this.state)
-                      newState.taskList[task].active = !newState.taskList[task].active
-                      this.setState(newState)
-                    }}
-                    centerElement={{primaryText:this.state.taskList[task].name}}
-                    onPress={() => console.log('show details...')} />
-                )
-              })
-            }
-          </View>
-          :
-          <View>
-            <ListItem
-              divider
-              centerElement={{primaryText:'Your Task Log is empty...'}} />
-          </View>
-        }
-      </Container>
+        <Container>
+          {/* {
+            this.state.showModal ?
+            <Dialog>
+              <Dialog.Title><Text>Add New Task</Text></Dialog.Title>
+              <Dialog.Content>
+                <Text>
+                  Enter your task name, details (optional), and category...
+                </Text>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <DialogDefaultActions
+                  actions={['Cancel', 'Save']}
+                  onActionPress={(action) => { console.log(action) }} />
+              </Dialog.Actions>
+            </Dialog>
+            :
+            <View/>
+          } */}
+          <Margin>
+            <Button
+              raised
+              primary
+              style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+              icon="add-to-photos"
+              text="Add Task"
+              onPress={this.addTask} />
+          </Margin>
+          {
+            this.state.taskList[0] ?
+            <View>
+              {
+                Object.keys(this.state.taskList).map((task) => {
+                  return (
+                    <ListItem
+                      key={this.state.taskList[task].id}
+                      divider
+                      leftElement={this.state.taskList[task].active ? <Icon name="check-box-outline-blank" /> : <Icon color='#455a64' name="check-box" />}
+                      onLeftElementPress={() => {
+                        const newState = _.cloneDeep(this.state)
+                        newState.taskList[task].active = !newState.taskList[task].active
+                        this.setState(newState)
+                      }}
+                      centerElement={{primaryText:this.state.taskList[task].name}}
+                      onPress={() => console.log('show details...')} />
+                  )
+                })
+              }
+            </View>
+            :
+            <View>
+              <ListItem
+                divider
+                centerElement={{primaryText:'Your Task Log is empty...'}} />
+            </View>
+          }
+        </Container>
+      </Flex>
     )
   }
 }
+
+const Flex = styled.View`
+  flex: 1;
+`
 
 const Container = styled.ScrollView`
   background-color: #303030;

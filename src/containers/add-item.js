@@ -1,8 +1,8 @@
-import React                             from 'react'
-import { ScrollView, View, Text }        from 'react-native'
-import { Button, Icon, Card, Subheader } from 'react-native-material-ui'
-import { NavigationActions }             from 'react-navigation'
-import styled                            from 'styled-components/native'
+import React                                      from 'react'
+import { ScrollView, View, Text }                 from 'react-native'
+import { Button, Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
+import { NavigationActions }                      from 'react-navigation'
+import styled                                     from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -24,12 +24,12 @@ class AddItem extends React.Component {
       .then(responseJson => {
         if(!responseJson.message) {
           if(responseJson.errorType) {
-            this.setState({ error: 'Unknown Barcode...' })
+            this.setState({ error: 'Unknown Barcode... Would you like to add this item manually?' })
           } else {
             this.setState({ newItem: responseJson })
           }
         } else {
-          this.setState({ error: 'Internal Server Error...' })
+          this.setState({ error: 'Something bad happened.....' })
         }
       })
       .catch(error => console.log(error))
@@ -50,9 +50,7 @@ class AddItem extends React.Component {
       .then(responseJson => {
         this.props.navigation.dispatch(NavigationActions.reset({
           index: 0,
-          actions: [
-            NavigationActions.navigate({ routeName: 'Inventory'})
-          ]
+          actions: [ NavigationActions.navigate({ routeName: 'Inventory'}) ]
         }))
       })
       .catch(error => console.log(error))
@@ -61,114 +59,118 @@ class AddItem extends React.Component {
   backToInventory = () => {
     this.props.navigation.dispatch(NavigationActions.reset({
       index: 0,
-      actions: [
-        NavigationActions.navigate({ routeName: 'Inventory'})
-      ]
+      actions: [ NavigationActions.navigate({ routeName: 'Inventory'}) ]
     }))
   }
 
   render() {
     return (
-      <Container>
-        <Card>
-          {
-            this.state.newItem && !this.state.error ?
-            <View>
-              <HeaderMargin>
-                <Subheader text={'Item Found:'} />
-                <Margin>
-                  <ColoredText>
-                    {this.state.newItem.name}
-                  </ColoredText>
-                </Margin>
-              </HeaderMargin>
-              {
-                this.state.newItem.cautions ?
-                <MarginLeft>
-                  <Subheader text='Allergy Information:' />
+      <Flex>
+        <Toolbar
+          centerElement='Add Item'
+          leftElement='local-pizza'
+        />
+        <Container>
+          <Card>
+            {
+              this.state.newItem && !this.state.error ?
+              <View>
+                <HeaderMargin>
+                  <Subheader text={'Item Found:'} />
                   <Margin>
-                    <ColoredText>
-                      { this.state.newItem.cautions.map((caution) => caution + "   " ) }
-                    </ColoredText>
+                    <StyledText>
+                      {this.state.newItem.name}
+                    </StyledText>
                   </Margin>
-                </MarginLeft>
-                :
-                ''
-              }
-              {
-                this.state.newItem.healthLabels ?
-                <MarginLeft>
-                  <Subheader text='Diet Restrictions:' />
-                  <Margin>
-                    <ColoredText>
-                      {
-                        this.state.newItem.healthLabels.map((label) => {
-                          if(label === 'VEGAN') {
-                            return label + "   "
-                          }
-                          if(label === 'VEGETARIAN') {
-                            return label + "   "
-                          }
-                          if(label === 'KOSHER') {
-                            return label + "   "
-                          }
-                        })
-                      }
-                    </ColoredText>
-                  </Margin>
-                </MarginLeft>
-                :
-                ''
-              }
-              <TopMargin>
-                <WhiteBg>
-                  <Margin>
-                    <Button
-                      raised
-                      primary
-                      style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-                      text="Add This Item"
-                      onPress={this.addItemToInventory} />
-                  </Margin>
-                </WhiteBg>
-                <WhiteBg>
-                  <Margin>
-                    <Button
-                      raised
-                      accent
-                      style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-                      text="Back to Inventory"
-                      onPress={this.backToInventory} />
-                  </Margin>
-                </WhiteBg>
-              </TopMargin>
-            </View>
-            :
-            <View>
-              {
-                 this.state.error ?
-                 <LoadingMargin>
-                   <Subheader text={this.state.error} />
-                   <WhiteBg>
-                     <Margin>
-                       <Button
-                         raised
-                         accent
-                         style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-                         text="Back to Inventory"
-                         onPress={this.backToInventory} />
-                     </Margin>
-                   </WhiteBg>
-                 </LoadingMargin>
-                 :
-                 <LoadingMargin>
-                   <Subheader text={'Loading...'} />
-                 </LoadingMargin>
-              }
-            </View>
-          }
-        </Card>
-      </Container>
+                </HeaderMargin>
+                {
+                  this.state.newItem.cautions ?
+                  <MarginLeft>
+                    <Subheader text='Allergy Information:' />
+                    <Margin>
+                      <StyledText>
+                        { this.state.newItem.cautions.map((caution) => caution + "   " ) }
+                      </StyledText>
+                    </Margin>
+                  </MarginLeft>
+                  :
+                  ''
+                }
+                {
+                  this.state.newItem.healthLabels ?
+                  <MarginLeft>
+                    <Subheader text='Diet Restrictions:' />
+                    <Margin>
+                      <StyledText>
+                        {
+                          this.state.newItem.healthLabels.map((label) => {
+                            if(label === 'VEGAN') {
+                              return label + "   "
+                            }
+                            if(label === 'VEGETARIAN') {
+                              return label + "   "
+                            }
+                            if(label === 'KOSHER') {
+                              return label + "   "
+                            }
+                          })
+                        }
+                      </StyledText>
+                    </Margin>
+                  </MarginLeft>
+                  :
+                  ''
+                }
+                <TopMargin>
+                  <WhiteBg>
+                    <Margin>
+                      <Button
+                        raised
+                        primary
+                        style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+                        text="Add This Item"
+                        onPress={this.addItemToInventory} />
+                    </Margin>
+                  </WhiteBg>
+                  <WhiteBg>
+                    <Margin>
+                      <Button
+                        raised
+                        accent
+                        style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+                        text="Back to Inventory"
+                        onPress={this.backToInventory} />
+                    </Margin>
+                  </WhiteBg>
+                </TopMargin>
+              </View>
+              :
+              <View>
+                {
+                   this.state.error ?
+                   <LoadingMargin>
+                     <Subheader text={this.state.error} />
+                     <WhiteBg>
+                       <Margin>
+                         <Button
+                           raised
+                           accent
+                           style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+                           text="Back to Inventory"
+                           onPress={this.backToInventory} />
+                       </Margin>
+                     </WhiteBg>
+                   </LoadingMargin>
+                   :
+                   <LoadingMargin>
+                     <Subheader text={'Loading...'} />
+                   </LoadingMargin>
+                }
+              </View>
+            }
+          </Card>
+        </Container>
+      </Flex>
     )
   }
 }
@@ -203,6 +205,7 @@ const TopMargin = styled.View`
   margin-top: 20px;
 `
 
-const ColoredText = styled.Text`
+const StyledText = styled.Text`
   color: rgb(255, 255, 255);
+  font-size: 18px;
 `

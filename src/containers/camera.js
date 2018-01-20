@@ -1,8 +1,8 @@
-import React                      from 'react'
-import { View, StyleSheet, Text } from 'react-native'
-import { Icon, Subheader }        from 'react-native-material-ui'
-import { NavigationActions }      from 'react-navigation'
-import Camera                     from 'react-native-camera'
+import React                        from 'react'
+import { View, StyleSheet, Text }   from 'react-native'
+import { Icon, Subheader, Toolbar } from 'react-native-material-ui'
+import { NavigationActions }        from 'react-navigation'
+import Camera                       from 'react-native-camera'
 
 class CameraApp extends React.Component {
   scanBarcode(e) {
@@ -10,9 +10,7 @@ class CameraApp extends React.Component {
       .then(data => {
         this.props.navigation.dispatch(NavigationActions.reset({
           index: 0,
-          actions: [
-            NavigationActions.navigate({ routeName: 'AddItem', params: { barcode: e.data }})
-          ]
+          actions: [ NavigationActions.navigate({ routeName: 'AddItem', params: { barcode: e.data }}) ]
         }))
       })
       .catch(err => console.log(err))
@@ -21,6 +19,11 @@ class CameraApp extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Toolbar
+          centerElement='Scan Barcode'
+          leftElement='arrow-back'
+          onLeftElementPress={()=>{this.props.navigation.goBack()}}
+        />
         <Camera
           ref={(cam) => {
             this.camera = cam;

@@ -1,8 +1,8 @@
-import React                             from 'react'
-import { ScrollView, View, Text }        from 'react-native'
-import { Button, Icon, Card, Subheader } from 'react-native-material-ui'
-import { NavigationActions }             from 'react-navigation'
-import styled                            from 'styled-components/native'
+import React                                      from 'react'
+import { ScrollView, View, Text }                 from 'react-native'
+import { Button, Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
+import { NavigationActions }                      from 'react-navigation'
+import styled                                     from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -33,9 +33,7 @@ class ItemView extends React.Component {
       .then(responseJson => {
         this.props.navigation.dispatch(NavigationActions.reset({
           index: 0,
-          actions: [
-            NavigationActions.navigate({ routeName: 'Inventory'})
-          ]
+          actions: [ NavigationActions.navigate({ routeName: 'Inventory'}) ]
         }))
       })
       .catch(error => console.log(error))
@@ -43,59 +41,61 @@ class ItemView extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Card>
-          {
-            this.state.item ?
-            <View>
-              <HeaderMargin>
-                <Subheader lines={2} text={this.state.item.name} />
-              </HeaderMargin>
-              <MarginLeft>
-                <Subheader text='Nutritional Information:' />
-                <Margin>
-                  <ColoredText>
-                    { 'Calories: ' + this.state.item.calories }
-                  </ColoredText>
-                  {
-                    Object.keys(this.state.item.totalNutrients).map((key) => {
-                      return <ColoredText key={key}>{ this.state.item.totalNutrients[key].label + ': ' + parseInt(this.state.item.totalNutrients[key].quantity) + this.state.item.totalNutrients[key].unit }</ColoredText>
-                    })
-                  }
-                </Margin>
-                <Subheader text='Allergy Information:' />
-                <Margin>
-                  <ColoredText>
-                    { this.state.item.cautions.map((caution) => caution + "   " ) }
-                  </ColoredText>
-                </Margin>
-                <Subheader text='Diet Restrictions:' />
-                <Margin>
-                  <ColoredText>
-                    {
-                      this.state.item.healthLabels.map((label) => {
-                        if(label === 'VEGAN') {
-                          return label + "   "
-                        }
-                        if(label === 'VEGETARIAN') {
-                          return label + "   "
-                        }
-                        if(label === 'KOSHER') {
-                          return label + "   "
-                        }
+      <Flex>
+        <Toolbar
+          centerElement={this.state.item.name}
+          leftElement='arrow-back'
+          onLeftElementPress={()=>{this.props.navigation.goBack()}}
+        />
+        <Container>
+          <Card>
+            {
+              this.state.item ?
+              <View>
+                <MarginLeft>
+                  <Subheader text='Nutritional Information:' />
+                  <Margin>
+                    <StyledText>
+                      { 'Calories: ' + this.state.item.calories }
+                    </StyledText>
+                    {/* {
+                      Object.keys(this.state.item.totalNutrients).map((key) => {
+                        return <StyledText key={key}>{ this.state.item.totalNutrients[key].label + ': ' + parseInt(this.state.item.totalNutrients[key].quantity) + this.state.item.totalNutrients[key].unit }</StyledText>
                       })
                     }
-                  </ColoredText>
-                </Margin>
-                <Subheader text='Ingredients:' />
-                <Margin>
-                  <ColoredText>
-                    { this.state.item.ingredients[0].parsed[0].foodContentsLabel }
-                  </ColoredText>
-                </Margin>
-              </MarginLeft>
-              <TopMargin>
-                <WhiteBg>
+                  </Margin>
+                  <Subheader text='Allergy Information:' />
+                  <Margin>
+                    <StyledText>
+                      { this.state.item.cautions.map((caution) => caution + "   " ) }
+                    </StyledText> */}
+                  </Margin>
+                  {/* <Subheader text='Diet Restrictions:' />
+                  <Margin>
+                    <StyledText>
+                      {
+                        this.state.item.healthLabels.map((label) => {
+                          if(label === 'VEGAN') {
+                            return label + "   "
+                          }
+                          if(label === 'VEGETARIAN') {
+                            return label + "   "
+                          }
+                          if(label === 'KOSHER') {
+                            return label + "   "
+                          }
+                        })
+                      }
+                    </StyledText>
+                  </Margin>
+                  <Subheader text='Ingredients:' />
+                  <Margin>
+                    <StyledText>
+                      { this.state.item.ingredients[0].parsed[0].foodContentsLabel }
+                    </StyledText>
+                  </Margin> */}
+                </MarginLeft>
+                <TopMargin>
                   <Margin>
                     <Button
                       raised
@@ -104,20 +104,25 @@ class ItemView extends React.Component {
                       text="Delete This Item"
                       onLongPress={this.deleteItem} />
                   </Margin>
-                </WhiteBg>
-              </TopMargin>
-            </View>
-            :
-            <LoadingMargin>
-              <Subheader text='Loading...' />
-            </LoadingMargin>
-          }
-        </Card>
-      </Container>
+                </TopMargin>
+              </View>
+              :
+              <LoadingMargin>
+                <Subheader text='Loading...' />
+              </LoadingMargin>
+            }
+          </Card>
+        </Container>
+      </Flex>
     )
   }
 }
+
 export default ItemView
+
+const Flex = styled.View`
+  flex: 1;
+`
 
 const Container = styled.ScrollView`
   background: #303030;
@@ -126,10 +131,6 @@ const Container = styled.ScrollView`
 
 const Margin = styled.View`
   margin: 0 20px 20px 20px;
-`
-
-const WhiteBg = styled.View`
-  background-color: white;
 `
 
 const HeaderMargin = styled.View`
@@ -148,6 +149,7 @@ const TopMargin = styled.View`
   margin-top: 20px;
 `
 
-const ColoredText = styled.Text`
+const StyledText = styled.Text`
   color: rgb(255, 255, 255);
+  font-size: 18px;
 `

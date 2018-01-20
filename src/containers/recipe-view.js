@@ -1,7 +1,7 @@
-import React                      from 'react'
-import { ScrollView, View, Text } from 'react-native'
-import { Icon, Card, Subheader }  from 'react-native-material-ui'
-import styled                     from 'styled-components/native'
+import React                               from 'react'
+import { ScrollView, View, Text }          from 'react-native'
+import { Icon, Card, Subheader, Toolbar }  from 'react-native-material-ui'
+import styled                              from 'styled-components/native'
 
 class RecipeView extends React.Component {
   constructor(props) {
@@ -17,50 +17,57 @@ class RecipeView extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Card>
-          {
-            this.state.recipe ?
-            <View>
-              <HeaderMargin>
-                <Subheader lines={2} text={this.state.recipe.name} />
-              </HeaderMargin>
-              <MarginLeft>
-                <Subheader text='Cook Time:' />
-                <Margin>
-                  <ColoredText>
-                    { this.state.recipe.cookTime }
-                  </ColoredText>
-                </Margin>
-                <Subheader text='Ingredients:' />
-                <Margin>
-                  <ColoredText>
-                    { this.state.recipe.ingredients }
-                  </ColoredText>
-                </Margin>
-                <Subheader text='Instructions:' />
-                <Margin>
-                  <ColoredText>
-                    { this.state.recipe.instructions }
-                  </ColoredText>
-                </Margin>
-              </MarginLeft>
-            </View>
-            :
-            <LoadingMargin>
-              <Subheader text='Loading...' />
-            </LoadingMargin>
-          }
-        </Card>
-      </Container>
+      <Flex>
+        <Toolbar
+          centerElement={this.state.recipe.name}
+          leftElement='arrow-back'
+          onLeftElementPress={()=>{this.props.navigation.goBack()}}
+        />
+        <ScrollBackground>
+          <Card>
+            {
+              this.state.recipe ?
+              <View>
+                <MarginLeft>
+                  <Subheader text='Cook Time:' />
+                  <Margin>
+                    <StyledText>
+                      { this.state.recipe.cookTime }
+                    </StyledText>
+                  </Margin>
+                  <Subheader text='Ingredients:' />
+                  <Margin>
+                    <StyledText>
+                      { this.state.recipe.ingredients }
+                    </StyledText>
+                  </Margin>
+                  <Subheader text='Instructions:' />
+                  <Margin>
+                    <StyledText>
+                      { this.state.recipe.instructions }
+                    </StyledText>
+                  </Margin>
+                </MarginLeft>
+              </View>
+              :
+              <LoadingMargin>
+                <Subheader text='Loading...' />
+              </LoadingMargin>
+            }
+          </Card>
+        </ScrollBackground>
+      </Flex>
     )
   }
 }
 export default RecipeView
 
-const Container = styled.ScrollView`
-  background: #303030;
+const Flex = styled.View`
   flex: 1;
+`
+
+const ScrollBackground = styled.ScrollView`
+  background: #303030;
 `
 
 const Margin = styled.View`
@@ -79,6 +86,7 @@ const MarginLeft = styled.View`
   margin-left: 10px;
 `
 
-const ColoredText = styled.Text`
+const StyledText = styled.Text`
   color: rgb(255, 255, 255);
+  font-size: 18px;
 `
