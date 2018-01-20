@@ -4,14 +4,14 @@ import { ThemeProvider }    from 'react-native-material-ui'
 import { fade }             from 'material-ui/utils/colorManipulator'
 
 import Router                          from './src/router.js'
-import { pink800, blueGrey700, white } from './colors.js'
+import { pink700, blueGrey700, white } from './colors.js'
 
 const uiTheme = {
   // spacing: spacing,
   // typography: typography,
   fontFamily: 'Roboto',
   palette: {
-    primaryColor: pink800,
+    primaryColor: pink700,
     accentColor: blueGrey700,
     primaryTextColor: fade(white, 0.8),
     secondaryTextColor: fade(white, 0.8),

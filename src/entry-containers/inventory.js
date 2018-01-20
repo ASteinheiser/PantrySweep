@@ -28,19 +28,15 @@ class Inventory extends React.Component {
     this.props.navigation.navigate('Camera')
   }
 
-  openMenu(e) {
-    this.props.navigation.navigate('DrawerToggle')
-  }
-
   render() {
     return (
       <Container>
         <Toolbar
-          centerElement='Toolbar'
+          centerElement='Pantry'
           leftElement='menu'
-          onLeftElementPress={this.openMenu.bind(this)}
+          onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        <Margin>
+        <MarginTop>
           <Button
             raised
             primary
@@ -48,16 +44,16 @@ class Inventory extends React.Component {
             icon="camera"
             text="Scan Food"
             onPress={this.nextPage} />
-        </Margin>
-        <Margin>
+        </MarginTop>
+        <MarginBottom>
           <Button
             raised
             accent
             style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-            icon="check"
-            text="Secondary Button"
+            icon="assignment"
+            text="Enter Food"
             onPress={() => {}} />
-        </Margin>
+        </MarginBottom>
         {
           this.state.foodItems ?
           <View>
@@ -91,8 +87,12 @@ const Container = styled.ScrollView`
   background-color: #303030;
 `
 
-const Margin = styled.View`
-  margin: 15px 20px;
+const MarginTop = styled.View`
+  margin: 25px 20px 15px 20px;
+`
+
+const MarginBottom = styled.View`
+  margin: 15px 20px 25px 20px;
 `
 
 const MarginRight = styled.View`

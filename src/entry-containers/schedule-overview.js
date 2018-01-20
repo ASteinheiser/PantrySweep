@@ -1,16 +1,10 @@
-import React                      from 'react'
-import { ScrollView, View, Text } from 'react-native'
-import styled                     from 'styled-components/native'
-import _                          from 'lodash'
-import {
-  Button,
-  ListItem,
-  Icon,
-  Dialog,
-  DialogDefaultActions
-} from 'react-native-material-ui'
+import React                                                    from 'react'
+import { ScrollView, View, Text, Toolbar }                      from 'react-native'
+import styled                                                   from 'styled-components/native'
+import _                                                        from 'lodash'
+import { Button, ListItem, Icon, Dialog, DialogDefaultActions } from 'react-native-material-ui'
 
-class ScheduleOverview extends React.Component {
+export default class ScheduleOverview extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,15 +21,11 @@ class ScheduleOverview extends React.Component {
   render() {
     return (
       <Container>
-        <Margin>
-          <Button
-            raised
-            primary
-            style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-            icon="add-to-photos"
-            text="Add Task"
-            onPress={this.addTask} />
-        </Margin>
+        <Toolbar
+          centerElement='Tasklist'
+          leftElement='menu'
+          onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
+        />
         {/* {
           this.state.showModal ?
           <Dialog>
@@ -54,6 +44,15 @@ class ScheduleOverview extends React.Component {
           :
           <View/>
         } */}
+        <Margin>
+          <Button
+            raised
+            primary
+            style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+            icon="add-to-photos"
+            text="Add Task"
+            onPress={this.addTask} />
+        </Margin>
         {
           this.state.taskList[0] ?
           <View>
@@ -86,7 +85,6 @@ class ScheduleOverview extends React.Component {
     )
   }
 }
-export default ScheduleOverview
 
 const Container = styled.ScrollView`
   background-color: #303030;
@@ -94,7 +92,7 @@ const Container = styled.ScrollView`
 `
 
 const Margin = styled.View`
-  margin: 15px 20px;
+  margin: 25px 20px;
 `
 
 const MarginRight = styled.View`

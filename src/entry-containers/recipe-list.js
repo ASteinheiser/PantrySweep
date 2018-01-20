@@ -1,7 +1,7 @@
-import React                      from 'react'
-import { ScrollView, View, Text } from 'react-native'
-import { Button, ListItem, Icon } from 'react-native-material-ui'
-import styled                     from 'styled-components/native'
+import React                               from 'react'
+import { ScrollView, View, Text }          from 'react-native'
+import { Button, ListItem, Icon, Toolbar } from 'react-native-material-ui'
+import styled                              from 'styled-components/native'
 
 import recipes from '../config/recipes.json'
 
@@ -20,6 +20,11 @@ class RecipeList extends React.Component {
   render() {
     return (
       <Container>
+        <Toolbar
+          centerElement='Recipes'
+          leftElement='menu'
+          onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
+        />
         <Margin>
           <Button
             raised
@@ -64,7 +69,7 @@ const Container = styled.ScrollView`
 `
 
 const Margin = styled.View`
-  margin: 15px 20px;
+  margin: 25px 20px;
 `
 
 const MarginRight = styled.View`
