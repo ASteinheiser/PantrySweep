@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation'
 
-import RecipeList from '../containers/recipe-list.js'
+import RecipeList from '../entry-containers/recipe-list.js'
 import RecipeView from '../containers/recipe-view.js'
 
 const Recipes = StackNavigator(
@@ -14,7 +14,7 @@ const Recipes = StackNavigator(
     RecipeView: {
       screen: RecipeView,
       navigationOptions: {
-        title: 'View Recipe'
+        header: null
       }
     },
   },

@@ -1,7 +1,7 @@
-import React                      from 'react'
-import { Text, View, ScrollView } from 'react-native'
-import { Button, ListItem, Icon } from 'react-native-material-ui'
-import styled                     from 'styled-components/native'
+import React                               from 'react'
+import { Text, View, ScrollView }          from 'react-native'
+import { Button, ListItem, Icon, Toolbar } from 'react-native-material-ui'
+import styled                              from 'styled-components/native'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -28,9 +28,18 @@ class Inventory extends React.Component {
     this.props.navigation.navigate('Camera')
   }
 
+  openMenu(e) {
+    this.props.navigation.navigate('DrawerToggle')
+  }
+
   render() {
     return (
       <Container>
+        <Toolbar
+          centerElement='Toolbar'
+          leftElement='menu'
+          onLeftElementPress={this.openMenu.bind(this)}
+        />
         <Margin>
           <Button
             raised

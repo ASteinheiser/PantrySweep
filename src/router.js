@@ -1,29 +1,24 @@
-import React       from 'react'
-import { View }    from 'react-native'
-import { Toolbar } from 'react-native-material-ui'
-import styled      from 'styled-components/native'
+import { DrawerNavigator } from 'react-navigation'
 
-import Kitchen from './routers/kitchen.js'
+import Pantry   from './routers/pantry.js'
+import Recipes  from './routers/recipes.js'
+import Schedule from './routers/schedule.js'
 
-export default class Router extends React.Component {
-  openMenu(e) {
-    console.log('opening menu')
+const Router = DrawerNavigator(
+  {
+    Pantry: {
+      screen: Pantry
+    },
+    Recipes: {
+      screen: Recipes
+    },
+    Schedule: {
+      screen: Schedule
+    }
+  },
+  {
+    initialRouteName: 'Pantry'
   }
+)
 
-  render() {
-    return (
-      <Container>
-        <Toolbar
-          centerElement='Toolbar'
-          leftElement='menu'
-          onLeftElementPress={this.openMenu}
-        />
-        <Kitchen />
-      </Container>
-    )
-  }
-}
-
-const Container = styled.View`
-  flex: 1
-`
+export default Router

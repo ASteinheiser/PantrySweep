@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation'
 
-import ScheduleOverview from '../containers/schedule-overview.js'
+import ScheduleOverview from '../entry-containers/schedule-overview.js'
 
 const Schedule = StackNavigator(
   {
