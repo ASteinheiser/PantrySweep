@@ -1,7 +1,7 @@
-import React                from 'react'
-import { AppRegistry }      from 'react-native'
-import { ThemeProvider }    from 'react-native-material-ui'
-import { fade }             from 'material-ui/utils/colorManipulator'
+import React             from 'react'
+import { AppRegistry }   from 'react-native'
+import { ThemeProvider } from 'react-native-material-ui'
+import { fade }          from 'material-ui/utils/colorManipulator'
 
 import Router                          from './src/router.js'
 import { pink700, blueGrey700, white } from './colors.js'
