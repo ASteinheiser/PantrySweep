@@ -1,8 +1,9 @@
-import React                               from 'react'
-import { ScrollView, View, Text }          from 'react-native'
-import { Button, ListItem, Icon, Toolbar } from 'react-native-material-ui'
-import styled                              from 'styled-components/native'
+import React                       from 'react'
+import { ScrollView, View, Text }  from 'react-native'
+import { ListItem, Icon, Toolbar } from 'react-native-material-ui'
+import styled                      from 'styled-components/native'
 
+import Button  from '../components/button.js'
 import recipes from '../config/recipes.json'
 
 class RecipeList extends React.Component {
@@ -28,9 +29,7 @@ class RecipeList extends React.Component {
         <Container>
           <Margin>
             <Button
-              raised
               primary
-              style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
               icon="chrome-reader-mode"
               text="Fetch Recipes"
               onPress={this.getRecipes} />

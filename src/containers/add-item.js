@@ -1,8 +1,10 @@
-import React                                      from 'react'
-import { ScrollView, View, Text }                 from 'react-native'
-import { Button, Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
-import { NavigationActions }                      from 'react-navigation'
-import styled                                     from 'styled-components/native'
+import React                              from 'react'
+import { ScrollView, View, Text }         from 'react-native'
+import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
+import { NavigationActions }              from 'react-navigation'
+import styled                             from 'styled-components/native'
+
+import Button from '../components/button.js'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -122,26 +124,18 @@ class AddItem extends React.Component {
                   ''
                 }
                 <TopMargin>
-                  <WhiteBg>
-                    <Margin>
-                      <Button
-                        raised
-                        primary
-                        style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-                        text="Add This Item"
-                        onPress={this.addItemToInventory} />
-                    </Margin>
-                  </WhiteBg>
-                  <WhiteBg>
-                    <Margin>
-                      <Button
-                        raised
-                        accent
-                        style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-                        text="Back to Inventory"
-                        onPress={this.backToInventory} />
-                    </Margin>
-                  </WhiteBg>
+                  <Margin>
+                    <Button
+                      primary
+                      text="Add This Item"
+                      onPress={this.addItemToInventory} />
+                  </Margin>
+                  <Margin>
+                    <Button
+                      accent
+                      text="Back to Inventory"
+                      onPress={this.backToInventory} />
+                  </Margin>
                 </TopMargin>
               </View>
               :
@@ -150,16 +144,12 @@ class AddItem extends React.Component {
                    this.state.error ?
                    <LoadingMargin>
                      <Subheader text={this.state.error} />
-                     <WhiteBg>
-                       <Margin>
-                         <Button
-                           raised
-                           accent
-                           style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
-                           text="Back to Inventory"
-                           onPress={this.backToInventory} />
-                       </Margin>
-                     </WhiteBg>
+                     <Margin>
+                       <Button
+                         accent
+                         text="Back to Inventory"
+                         onPress={this.backToInventory} />
+                     </Margin>
                    </LoadingMargin>
                    :
                    <LoadingMargin>
@@ -183,10 +173,6 @@ const Container = styled.ScrollView`
 
 const Margin = styled.View`
   margin: 0 20px 20px 20px;
-`
-
-const WhiteBg = styled.View`
-  background-color: white;
 `
 
 const HeaderMargin = styled.View`

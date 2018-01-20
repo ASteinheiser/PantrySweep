@@ -1,8 +1,10 @@
-import React                                      from 'react'
-import { ScrollView, View, Text }                 from 'react-native'
-import { Button, Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
-import { NavigationActions }                      from 'react-navigation'
-import styled                                     from 'styled-components/native'
+import React                              from 'react'
+import { ScrollView, View, Text }         from 'react-native'
+import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
+import { NavigationActions }              from 'react-navigation'
+import styled                             from 'styled-components/native'
+
+import Button from '../components/button.js'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -98,9 +100,8 @@ class ItemView extends React.Component {
                 <TopMargin>
                   <Margin>
                     <Button
-                      raised
                       accent
-                      style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
+                      icon="cancel"
                       text="Delete This Item"
                       onLongPress={this.deleteItem} />
                   </Margin>

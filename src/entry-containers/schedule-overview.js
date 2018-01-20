@@ -1,8 +1,10 @@
-import React                                                    from 'react'
-import { ScrollView, View, Text, Toolbar }                      from 'react-native'
-import styled                                                   from 'styled-components/native'
-import _                                                        from 'lodash'
-import { Button, ListItem, Icon, Dialog, DialogDefaultActions } from 'react-native-material-ui'
+import React                                            from 'react'
+import { ScrollView, View, Text, Toolbar }              from 'react-native'
+import styled                                           from 'styled-components/native'
+import _                                                from 'lodash'
+import { ListItem, Icon, Dialog, DialogDefaultActions } from 'react-native-material-ui'
+
+import Button from '../components/button.js'
 
 export default class ScheduleOverview extends React.Component {
   constructor(props) {
@@ -47,9 +49,7 @@ export default class ScheduleOverview extends React.Component {
           } */}
           <Margin>
             <Button
-              raised
               primary
-              style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
               icon="add-to-photos"
               text="Add Task"
               onPress={this.addTask} />

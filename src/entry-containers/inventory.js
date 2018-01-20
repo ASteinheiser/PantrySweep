@@ -1,7 +1,9 @@
-import React                               from 'react'
-import { Text, View, ScrollView }          from 'react-native'
-import { Button, ListItem, Icon, Toolbar } from 'react-native-material-ui'
-import styled                              from 'styled-components/native'
+import React                       from 'react'
+import { Text, View, ScrollView }  from 'react-native'
+import { ListItem, Icon, Toolbar } from 'react-native-material-ui'
+import styled                      from 'styled-components/native'
+
+import Button from '../components/button.js'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -55,18 +57,14 @@ class Inventory extends React.Component {
         <Container>
           <MarginTop>
             <Button
-              raised
               primary
-              style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
               icon="camera"
               text="Scan Food"
               onPress={this.nextPage} />
           </MarginTop>
           <MarginBottom>
             <Button
-              raised
               accent
-              style={{text:{color:'rgba(255, 255, 255, 0.8)'}}}
               icon="assignment"
               text="Enter Food"
               onPress={() => {}} />
