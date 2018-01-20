@@ -1,8 +1,8 @@
-import React                                            from 'react'
-import { ScrollView, View, Text, Toolbar }              from 'react-native'
-import styled                                           from 'styled-components/native'
-import _                                                from 'lodash'
-import { ListItem, Icon, Dialog, DialogDefaultActions } from 'react-native-material-ui'
+import React                                                     from 'react'
+import { ScrollView, View, Text }                                from 'react-native'
+import styled                                                    from 'styled-components/native'
+import _                                                         from 'lodash'
+import { ListItem, Icon, Dialog, DialogDefaultActions, Toolbar } from 'react-native-material-ui'
 
 import Button from '../components/button.js'
 
