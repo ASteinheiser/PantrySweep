@@ -1,9 +1,10 @@
-import React                       from 'react'
-import { Text, View, ScrollView }  from 'react-native'
-import { ListItem, Icon, Toolbar } from 'react-native-material-ui'
-import styled                      from 'styled-components/native'
+import React                      from 'react'
+import { Text, View, ScrollView } from 'react-native'
+import { Icon, Toolbar }          from 'react-native-material-ui'
+import styled                     from 'styled-components/native'
 
-import Button from '../components/button.js'
+import Button   from '../components/button.js'
+import ListItem from '../components/list-item.js'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 
@@ -77,7 +78,6 @@ class Inventory extends React.Component {
                   return (
                     <ListItem
                       key={key}
-                      divider
                       leftElement={<Icon name="keyboard-arrow-right" />}
                       centerElement={{primaryText: foodItem.name}}
                       onPress={() => this.props.navigation.navigate('ItemView', { item: foodItem })} />
@@ -88,7 +88,6 @@ class Inventory extends React.Component {
             :
             <View>
               <ListItem
-                divider
                 centerElement={{primaryText: 'Your Virtual Pantry is empty...'}} />
             </View>
           }

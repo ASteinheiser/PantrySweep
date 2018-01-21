@@ -1,10 +1,11 @@
-import React                                                     from 'react'
-import { ScrollView, View, Text }                                from 'react-native'
-import styled                                                    from 'styled-components/native'
-import _                                                         from 'lodash'
-import { ListItem, Icon, Dialog, DialogDefaultActions, Toolbar } from 'react-native-material-ui'
+import React                                           from 'react'
+import { ScrollView, View, Text }                      from 'react-native'
+import styled                                          from 'styled-components/native'
+import _                                               from 'lodash'
+import { Icon, Dialog, DialogDefaultActions, Toolbar } from 'react-native-material-ui'
 
-import Button from '../components/button.js'
+import Button   from '../components/button.js'
+import ListItem from '../components/list-item.js'
 
 export default class ScheduleOverview extends React.Component {
   constructor(props) {
@@ -62,7 +63,6 @@ export default class ScheduleOverview extends React.Component {
                   return (
                     <ListItem
                       key={this.state.taskList[task].id}
-                      divider
                       leftElement={this.state.taskList[task].active ? <Icon name="check-box-outline-blank" /> : <Icon color='#455a64' name="check-box" />}
                       onLeftElementPress={() => {
                         const newState = _.cloneDeep(this.state)
@@ -78,7 +78,6 @@ export default class ScheduleOverview extends React.Component {
             :
             <View>
               <ListItem
-                divider
                 centerElement={{primaryText:'Your Task Log is empty...'}} />
             </View>
           }

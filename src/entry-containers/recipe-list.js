@@ -1,10 +1,11 @@
-import React                       from 'react'
-import { ScrollView, View, Text }  from 'react-native'
-import { ListItem, Icon, Toolbar } from 'react-native-material-ui'
-import styled                      from 'styled-components/native'
+import React                      from 'react'
+import { ScrollView, View, Text } from 'react-native'
+import { Icon, Toolbar }          from 'react-native-material-ui'
+import styled                     from 'styled-components/native'
 
-import Button  from '../components/button.js'
-import recipes from '../config/recipes.json'
+import Button   from '../components/button.js'
+import ListItem from '../components/list-item.js'
+import recipes  from '../config/recipes.json'
 
 class RecipeList extends React.Component {
   constructor(props) {
@@ -42,7 +43,6 @@ class RecipeList extends React.Component {
                   return (
                     <ListItem
                       key={this.state.recipeList[recipeItem].id}
-                      divider
                       leftElement={<Icon name="keyboard-arrow-right" />}
                       centerElement={{primaryText: this.state.recipeList[recipeItem].name}}
                       onPress={() => this.props.navigation.navigate('RecipeView', { recipe: this.state.recipeList[recipeItem] })} />
@@ -53,7 +53,6 @@ class RecipeList extends React.Component {
             :
             <View>
               <ListItem
-                divider
                 centerElement={{primaryText: 'Your Recipe Book is empty...'}} />
             </View>
           }
