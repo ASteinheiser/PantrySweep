@@ -24,7 +24,7 @@ export default class ScheduleOverview extends React.Component {
     return (
       <Flex>
         <Toolbar
-          centerElement='Tasklist'
+          centerElement='Task List'
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />

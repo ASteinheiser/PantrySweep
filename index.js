@@ -16,10 +16,10 @@ const uiTheme = {
     primaryTextColor: fade(white, 0.8),
     secondaryTextColor: fade(white, 0.8),
     canvasColor: '#303030',
-    borderColor: fade(white, 0.3),
+    borderColor: fade(white, 0.5),
     disabledColor: fade(white, 0.3),
-    pickerHeaderColor: fade(white, 0.12),
-    clockCircleColor: fade(white, 0.12),
+    // pickerHeaderColor: fade(white, 0.12),
+    // clockCircleColor: fade(white, 0.12),
   },
   toolbar: {
     container: {

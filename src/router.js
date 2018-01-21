@@ -2,24 +2,36 @@ import { DrawerNavigator }              from 'react-navigation'
 import { fade }                         from 'material-ui/utils/colorManipulator'
 import { pink700, blueGrey700, white }  from '../colors.js'
 
-import Pantry   from './routers/pantry.js'
-import Recipes  from './routers/recipes.js'
-import Schedule from './routers/schedule.js'
+import Pantry        from './routers/pantry.js'
+import Recipes       from './routers/recipes.js'
+import Schedule      from './routers/schedule.js'
+import WatchPage     from './routers/watch-page.js'
+import ShoppingList  from './routers/shopping-list.js'
+import Settings      from './routers/settings.js'
 
 const Router = DrawerNavigator(
   {
-    Pantry: {
+    Inventory: {
       screen: Pantry
+    },
+    'Shopping List': {
+      screen: ShoppingList
     },
     Recipes: {
       screen: Recipes
     },
-    Schedule: {
+    'Task List': {
       screen: Schedule
+    },
+    'Fitbit Dashboard': {
+      screen: WatchPage
+    },
+    Settings: {
+      screen: Settings
     }
   },
   {
-    initialRouteName: 'Pantry',
+    initialRouteName: 'Inventory',
     drawerBackgroundColor: '#303030',
     contentOptions: {
       labelStyle: {
