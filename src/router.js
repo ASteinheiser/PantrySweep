@@ -1,5 +1,6 @@
 import React                            from 'react'
 import { ScrollView, Text, View }       from 'react-native'
+import { Icon }                         from 'react-native-material-ui'
 import { DrawerNavigator, DrawerItems } from 'react-navigation'
 import { fade }                         from 'material-ui/utils/colorManipulator'
 import styled                           from 'styled-components/native'
@@ -36,7 +37,23 @@ const Router = DrawerNavigator(
   {
     initialRouteName: 'Inventory',
     drawerBackgroundColor: '#303030',
-    contentComponent: props => <ScrollView><Margin><StyledText>Pantry Sweep</StyledText></Margin><DrawerItems {...props}/></ScrollView>,
+    contentComponent: props => {
+      return (
+        <ScrollView>
+          <Margin>
+            <FlexRow>
+              <MarginRight>
+                <Icon name='trending-up'/>
+              </MarginRight>
+              <StyledText>
+                Pantry Sweep
+              </StyledText>
+            </FlexRow>
+          </Margin>
+          <DrawerItems {...props}/>
+        </ScrollView>
+      )
+    },
     contentOptions: {
       labelStyle: {
         fontFamily: 'Roboto',
@@ -53,9 +70,18 @@ export default Router
 
 const StyledText = styled.Text`
   font-size: 18px;
-  color: white;
+  color: ${white};
 `
 
 const Margin = styled.View`
-  margin: 20px 0 20px 20px;
+margin: 30px 0 30px 20px;
+`
+
+const MarginRight = styled.View`
+  margin-right: 10px;
+`
+
+const FlexRow = styled.View`
+  flex: 1;
+  flex-direction: row;
 `
