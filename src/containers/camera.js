@@ -18,34 +18,29 @@ class CameraApp extends React.Component {
 
   render() {
     return (
-      <View style={style.flex}>
+      <View style={styles.container}>
         <Toolbar
           centerElement='Scan Barcode'
           leftElement='arrow-back'
           onLeftElementPress={()=>{this.props.navigation.goBack()}}
         />
-        <View style={styles.container}>
-          <Camera
-            ref={(cam) => {
-              this.camera = cam;
-            }}
-            captureTarget={Camera.constants.CaptureTarget.temp}
-            onBarCodeRead={this.scanBarcode.bind(this)}
-            style={styles.preview}
-            aspect={Camera.constants.Aspect.fill} />
-        </View>
+        <Camera
+          ref={(cam) => {
+            this.camera = cam;
+          }}
+          captureTarget={Camera.constants.CaptureTarget.temp}
+          onBarCodeRead={this.scanBarcode.bind(this)}
+          style={styles.preview}
+          aspect={Camera.constants.Aspect.fill} />
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  flex: {
-    flex: 1,
-  },
   container: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'column'
   },
   preview: {
     flex: 1,
